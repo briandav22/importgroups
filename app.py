@@ -8,8 +8,8 @@ import sys
 
 requests.packages.urllib3.disable_warnings()
 # add in variables to Script
-scrutinizer_url = 'http://your_scrutinizer_hostname'
-scrutinizer_authToken = 'scrutinizer_auth_token'
+scrutinizer_url = 'https://your_scrutinizer_here'
+scrutinizer_authToken = 'your_auth_token_here'
 exporter_sites = 'exporters_sites.txt'
 site_codes = 'site_codes.txt'
 
@@ -34,7 +34,6 @@ if create_mode == True:
                 print("creating group {} of {}".format(site_counter, number_of_sites))
                 group_maker.create_group(site)
                 request_result = scrut_requester.request_data(group_maker.report_object)
-                print(request_result)
                 try:
                         if request_result['lbl']:
                                 print("Created Group {}".format(request_result['lbl']))
